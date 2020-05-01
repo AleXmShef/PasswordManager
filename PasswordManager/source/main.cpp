@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <iostream>
 #include "PasswordManager.h"
+#include "UIConnector.h"
 
 std::string readMessage() {
     int length = 0;
@@ -56,12 +57,12 @@ void runAsConsole(int argc, char *argv[]) {
                     std::string domain = argv[4];
                     std::string login = argv[5];
                     std::string password = argv[6];
-                    passwordManager.start();
+                    passwordManager.decryptFile();
                     passwordManager.insertPassword(domain, login, password);
                     passwordManager.finish();
                 }
                 else if(argv[3] == std::string("-v")) {
-                    passwordManager.start();
+                    passwordManager.decryptFile();
                     passwordManager.viewMyPasswords();
                     passwordManager.finish();
                 }
@@ -84,6 +85,8 @@ int main(int argc, char *argv[])
         return 0;
     }
     else {
+        qmlRegisterSingletonType<UIConnector>("app", 1, 0, "UIConnector", UIConnector::UIConnector_singletonTypeProvider);
+
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
         QGuiApplication app(argc, argv);

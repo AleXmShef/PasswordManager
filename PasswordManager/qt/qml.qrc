@@ -1,5 +1,17 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>../assets/key.svg</file>
+        <file>../assets/Lock.gif</file>
+        <file>../assets/Lock_closed.png</file>
+        <file>../assets/Lock_opened.png</file>
+        <file>../assets/search_icon.svg</file>
+        <file>../assets/Add.svg</file>
+        <file>../assets/Delete.svg</file>
+        <file>../assets/Edit.svg</file>
+        <file>Header.qml</file>
+        <file>Footer.qml</file>
+        <file>MainField.qml</file>
+        <file>LogonForm.qml</file>
     </qresource>
 </RCC>

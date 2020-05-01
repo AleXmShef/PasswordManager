@@ -14,9 +14,10 @@ find_package(Qt5Core REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Quick REQUIRED)
 
-include_directories(../CryptDLL/include)
+include_directories(../CryptDLL/include include)
+link_directories(../bin)
 
-add_executable(PasswordManagerUI source/main.cpp qt/qml.qrc)
+add_executable(PasswordManagerUI source/main.cpp qt/qml.qrc include/UIConnector.h source/UIConnector.cpp)
 
 target_compile_definitions(PasswordManagerUI
         PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)

@@ -1,18 +1,23 @@
 #include <string>
 #include <vector>
+#include "rapidjson/document.h"
+
+#ifndef PASSWORDMANAGER_PASSWORDMANAGER_H
+#define PASSWORDMANAGER_PASSWORDMANAGER_H
 
 class PasswordManager {
 public:
     explicit PasswordManager(std::string *key);
     std::string getRandomString(int length);
     void viewMyPasswords();
+    std::string getMyPasswords();
     //std::string getPasswordFor(std::string domain);
     //std::string viewRaw();
     void create_blank();
     static void demo2();
     bool insertPassword(std::string domain, std::string login, std::string password);
     //bool deletePassword(int i);
-    void start();
+    bool decryptFile();
     void finish();
     //void test();
 private:
@@ -29,24 +34,8 @@ private:
 
     unsigned char* hashKey(std::string *key);
 
-    std::string testing1;
-
-    std::string testing2;
-
-    struct Password {
-        std::string domain;
-        std::string login;
-        std::string password;
-    };
-    struct FileInfo {
-        int controlNumberSize = 4;
-        int fileSize;
-        int fileSizeOffset = controlNumberSize;
-        int passwordsCount;
-        int passwordsCountOffset = fileSizeOffset + 4;
-        int firstPasswordCountOffset = passwordsCountOffset + 4;
-    };
+    rapidjson::Document* _json;
     unsigned char* hashedKey = nullptr;
-    FileInfo fileInfo;
-    std::vector<Password*> passwords;
 };
+
+#endif //PASSWORDMANAGER_PASSWORDMANAGER_H
