@@ -8,7 +8,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_PREFIX_PATH "K:/Qt/5.14.1/mingw73_64")
+set(CMAKE_PREFIX_PATH "J:/Software/Qt/5.14.1/mingw73_64")
 
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Widgets REQUIRED)

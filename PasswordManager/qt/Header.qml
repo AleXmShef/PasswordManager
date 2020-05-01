@@ -24,7 +24,7 @@ Item {
         property: "_scale"
         easing.type: Easing.InOutQuad
         to: 0.7
-        duration: 1250
+        duration: 500
     }
     PropertyAnimation {
         property int _margin: 150
@@ -33,7 +33,7 @@ Item {
         properties: "_margin"
         easing.type: Easing.InOutQuad
         to: 50
-        duration: 1250
+        duration: 500
         onRunningChanged: {
             if(!running)
                 console.log(parent.anchors.topMargin)
@@ -53,7 +53,7 @@ Item {
             anchors.fill: parent
             source: "../assets/Lock.gif"
             visible: false
-            speed: 1.4
+            speed: 2
             playing: false
             onCurrentFrameChanged: {
                 if(currentFrame + 1 === frameCount) {

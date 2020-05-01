@@ -139,14 +139,23 @@ Window {
                     fillMode: Image.PreserveAspectFit
                     height: 30
                     transform: Rotation {origin.y: (keyImage.height/2); axis {x:1;y:0;z:0} angle: keyImage.rotDeg}
-                    PropertyAnimation {
-                        property var callback
+                    SequentialAnimation {
                         id: openAnim
-                        target: keyImage
-                        properties: "rotDeg"
-                        easing.type: Easing.InOutQuad
-                        duration: 800
-                        to: 90
+                        property var callback
+                        PropertyAnimation {
+                            target: keyImage
+                            properties: "rotDeg"
+                            easing.type: Easing.InOutQuad
+                            duration: 400
+                            to: 90
+                        }
+                        PropertyAnimation {
+                            target: keyImage
+                            properties: "rotDeg"
+                            easing.type: Easing.InOutQuad
+                            duration: 100
+                            to: 90
+                        }
                         onRunningChanged: {
                             if(!running) {
                                 callback()
@@ -159,14 +168,14 @@ Window {
                             target: keyImage
                             properties: "rotDeg"
                             easing.type: Easing.InOutQuad
-                            duration: 500
+                            duration: 250
                             to: 90
                         }
                         PropertyAnimation {
                             target: keyImage
                             properties: "rotDeg"
                             easing.type: Easing.InOutQuad
-                            duration: 500
+                            duration: 250
                             to: 0
                         }
                     }
